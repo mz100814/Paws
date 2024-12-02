@@ -1,29 +1,29 @@
 import asyncio
-import base64
 import json
+import random
 import sys
+from random import randint
 from time import time
 from urllib.parse import unquote
+
 import aiohttp
+import cloudscraper
 from aiocfscrape import CloudflareScraper
+from aiofile import AIOFile
 from aiohttp_proxy import ProxyConnector
 from better_proxy import Proxy
 from pyrogram import Client
 from pyrogram.errors import Unauthorized, UserDeactivated, AuthKeyUnregistered, FloodWait
-from pyrogram.raw.types import InputBotAppShortName
 from pyrogram.raw.functions.messages import RequestAppWebView
-from bot.core.agents import generate_random_user_agent, fetch_version
-from bot.config import settings
-import cloudscraper
+from pyrogram.raw.types import InputBotAppShortName
 
-from bot.utils import logger
+from bot.config import settings
+from bot.core.agents import generate_random_user_agent, fetch_version
 from bot.exceptions import InvalidSession
-from .headers import headers
-from random import randint
-import random
-from bot.utils.ps import check_base_url
-from aiofile import AIOFile
 from bot.utils import launcher as lc
+from bot.utils import logger
+from bot.utils.ps import check_base_url
+from .headers import headers
 
 end_point = "https://api.paws.community/v1/"
 auth_api = f"{end_point}user/auth"
@@ -515,18 +515,16 @@ class Tapper:
 
 
 def get_(game):
+    ref = ''
     if game == "paws":
-        abasdowiad = base64.b64decode("c2M5YkdhSHo=")
+        ref = "MYoSJsxW"
     elif game == "bums":
-        abasdowiad = base64.b64decode("cmVmX1pXcDdQTHVR")
+        ref = "ref_2XRFAhPv"
     elif game == "duck":
-        abasdowiad = base64.b64decode("cENBbDlhdTY=")
+        ref = "oprJQJXzwU"
     elif game == "clay":
-        abasdowiad = base64.b64decode("NjQ5MzIxMTE1NQ==")
-    waijdioajdioajwdwioajdoiajwodjawoidjaoiwjfoiajfoiajfojaowfjaowjfoajfojawofjoawjfioajwfoiajwfoiajwfadawoiaaiwjaijgaiowjfijawtext = abasdowiad.decode(
-        "utf-8")
-
-    return waijdioajdioajwdwioajdoiajwodjawoidjaoiwjfoiajfoiajfojaowfjaowjfoajfojawofjoawjfioajwfoiajwfoiajwfadawoiaaiwjaijgaiowjfijawtext
+        ref = "7180733078"
+    return ref
 
 
 async def run_tapper(tg_client: Client, proxy: str | None, wallet: str | None, wallet_memonic: str | None, ua):
