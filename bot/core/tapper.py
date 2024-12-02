@@ -363,7 +363,7 @@ class Tapper:
                             if settings.REF_LINK == '':
                                 ref_param = get_("paws")
                             else:
-                                ref_param = settings.REF_LINK.split('=')[1]
+                                ref_param = settings.REF_LINK
                         except:
                             logger.warning(
                                 "<yellow>INVAILD REF LINK PLEASE CHECK AGAIN! (PUT YOUR REF LINK NOT REF ID)</yellow>")
